@@ -1,15 +1,15 @@
 const {getFrames, getScore} = require('./bowling');
 
 describe('getScore', () => {
-	test('_', () => {
+	test('1', () => {
 		expect(getScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(90);
 	})
 
-	test('_', () => {
+	test('2', () => {
 		expect(getScore([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])).toBe(30);
 	})
 
-	test('_', () => {
+	test('3', () => {
 		expect(getScore([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toBe(16);
 	})
 })

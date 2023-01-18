@@ -2,8 +2,6 @@ function getFrames(rolls) {
 	const frames = []
 
 	for (let i = 0; i < rolls.length; i += 2) {
-		console.log(i, rolls[i]);
-		console.log(rolls[i], rolls[i+1])
 		if (i + 1 < rolls.length && (rolls[i] == 10 || rolls[i + 1] == 10)) {
 			// strike
 			frames.push([rolls[i], rolls[i + 1], rolls[i + 2]]);
@@ -18,7 +16,9 @@ function getFrames(rolls) {
 			frames.push([rolls[i], rolls[i + 1]]);
 		}
 		else throw Error('Invalid Input')
-		console.log(frames);
+		
+		if (frames.length == 10)
+			break;
 	}
 
 	return frames;
@@ -35,8 +35,6 @@ function getScore(rolls) {
 function getBestScore(rolls) {
 	return Math.max(...getScores(rolls));
 }
-
-console.log(getScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]))
 
 module.exports = {
 	getFrames,
