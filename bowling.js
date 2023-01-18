@@ -32,6 +32,10 @@ function getScore(rolls) {
 	return getScores(rolls).reduce((acc,score) => acc + score);
 }
 
+function getBestScore(rolls) {
+	return Math.max(...getScores(rolls));
+}
+
 console.log(getScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]))
 
 module.exports = {
