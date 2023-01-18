@@ -35,8 +35,11 @@ function getScore(rolls) {
   return getScores(rolls).reduce((acc, score) => acc + score);
 }
 
-function getBestScore(rolls) {
-  return Math.max(...getScores(rolls));
+function getBestScore(games) {
+  if (!Array.isArray(games))
+    throw TypeError('Unsupported Type');
+
+  return Math.max(...games.map(rolls => getScore(rolls)));
 }
 
 module.exports = {
