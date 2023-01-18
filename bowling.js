@@ -40,8 +40,7 @@ function getBestScore(rolls) {
 }
 
 module.exports = {
-  getFrames,
-  getScores,
-  getScore
+  getScore,
+  getBestScore,
 };
 

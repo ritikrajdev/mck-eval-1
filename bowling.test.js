@@ -1,4 +1,4 @@
-const {getFrames, getScore} = require('./bowling');
+const {getBestScore, getScore} = require('./bowling');
 
 describe('getScore', () => {
   test('1', () => {
@@ -26,16 +26,29 @@ describe('getScore', () => {
   });
 });
 
-// describe('getFrames', () => {
-// 	test('_', () => {
-// 		expect(getFrames([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toEqual(90);
-// 	})
 
-// 	test('_', () => {
-// 		expect(getFrames([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])).toEqual(30);
-// 	})
+describe('getBestScore', () => {
+  test('1', () => {
+    expect(getBestScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(9);
+  });
 
-// 	test('_', () => {
-// 		expect(getFrames([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toEqual();
-// 	})
-// })
+  test('2', () => {
+    expect(getBestScore([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])).toBe(30);
+  });
+
+  test('3', () => {
+    expect(getBestScore([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toBe(13);
+  });
+
+  test('error when not an array', () => {
+    expect(() => {getBestScore('a');}).toThrow(TypeError);
+  });
+
+  test('error when not an array of numbers', () => {
+    expect(() => {getBestScore(['a']);}).toThrow(TypeError);
+  });
+
+  test('error when invalid game / inputs', () => {
+    expect(() => {getBestScore([6, 4, 3, 0, 0]);}).toThrow(Error);
+  });
+});
