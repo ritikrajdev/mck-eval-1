@@ -1,4 +1,7 @@
 function getFrames(rolls) {
+	if (!Array.isArray(rolls) || rolls.some(isNaN))
+		throw TypeError('Unsupported Type')
+
 	const frames = []
 
 	for (let i = 0; i < rolls.length; i += 2) {
@@ -16,7 +19,7 @@ function getFrames(rolls) {
 			frames.push([rolls[i], rolls[i + 1]]);
 		}
 		else throw Error('Invalid Input')
-		
+
 		if (frames.length == 10)
 			break;
 	}
@@ -29,7 +32,7 @@ function getScores(rolls) {
 }
 
 function getScore(rolls) {
-	return getScores(rolls).reduce((acc,score) => acc + score);
+	return getScores(rolls).reduce((acc, score) => acc + score);
 }
 
 function getBestScore(rolls) {

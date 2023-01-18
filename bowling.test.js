@@ -12,6 +12,18 @@ describe('getScore', () => {
 	test('3', () => {
 		expect(getScore([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toBe(16);
 	})
+
+	test('error when not an array', () => {
+		expect(() => {getScore('a')}).toThrow(TypeError);
+	})
+
+	test('error when not an array of numbers', () => {
+		expect(() => {getScore(['a'])}).toThrow(TypeError);
+	})
+
+	test('error when invalid game / inputs', () => {
+		expect(() => {getScore([6, 4, 3, 0, 0])}).toThrow(Error);
+	})
 })
 
 // describe('getFrames', () => {
